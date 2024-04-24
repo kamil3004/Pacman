@@ -35,6 +35,12 @@ endif(WIN32)
 
 find_package(SFML 2 COMPONENTS graphics audio REQUIRED)
 
-add_executable(sfml main.cpp )
+add_executable(sfml main.cpp
+        files/GameBoard.cpp
+        files/GameBoard.h
+        files/characters.cpp
+        files/characters.h
+        files/PacMan.cpp
+        files/PacMan.h)
 target_link_libraries(sfml sfml-graphics sfml-audio)
 

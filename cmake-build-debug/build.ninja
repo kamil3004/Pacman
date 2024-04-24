@@ -57,6 +57,30 @@ build CMakeFiles/sfml.dir/main.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/U
   OBJECT_DIR = CMakeFiles\sfml.dir
   OBJECT_FILE_DIR = CMakeFiles\sfml.dir
 
+build CMakeFiles/sfml.dir/files/GameBoard.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/GameBoard.cpp || cmake_object_order_depends_target_sfml
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\sfml.dir\files\GameBoard.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -Wall -Wextra
+  INCLUDES = -isystem C:/SFML-2.6.1/include
+  OBJECT_DIR = CMakeFiles\sfml.dir
+  OBJECT_FILE_DIR = CMakeFiles\sfml.dir\files
+
+build CMakeFiles/sfml.dir/files/characters.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/characters.cpp || cmake_object_order_depends_target_sfml
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\sfml.dir\files\characters.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -Wall -Wextra
+  INCLUDES = -isystem C:/SFML-2.6.1/include
+  OBJECT_DIR = CMakeFiles\sfml.dir
+  OBJECT_FILE_DIR = CMakeFiles\sfml.dir\files
+
+build CMakeFiles/sfml.dir/files/PacMan.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/PacMan.cpp || cmake_object_order_depends_target_sfml
+  DEFINES = -DSFML_STATIC
+  DEP_FILE = CMakeFiles\sfml.dir\files\PacMan.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -Wall -Wextra
+  INCLUDES = -isystem C:/SFML-2.6.1/include
+  OBJECT_DIR = CMakeFiles\sfml.dir
+  OBJECT_FILE_DIR = CMakeFiles\sfml.dir\files
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target sfml
@@ -65,7 +89,7 @@ build CMakeFiles/sfml.dir/main.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/U
 #############################################
 # Link the executable sfml.exe
 
-build sfml.exe: CXX_EXECUTABLE_LINKER__sfml_Debug CMakeFiles/sfml.dir/main.cpp.obj | C$:/SFML-2.6.1/lib/libsfml-graphics-s-d.a C$:/SFML-2.6.1/lib/libsfml-audio-s-d.a C$:/SFML-2.6.1/lib/libsfml-window-s-d.a C$:/SFML-2.6.1/lib/libfreetype.a C$:/SFML-2.6.1/lib/libopenal32.a C$:/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/SFML-2.6.1/lib/libvorbisfile.a C$:/SFML-2.6.1/lib/libvorbisenc.a C$:/SFML-2.6.1/lib/libvorbis.a C$:/SFML-2.6.1/lib/libogg.a C$:/SFML-2.6.1/lib/libFLAC.a
+build sfml.exe: CXX_EXECUTABLE_LINKER__sfml_Debug CMakeFiles/sfml.dir/main.cpp.obj CMakeFiles/sfml.dir/files/GameBoard.cpp.obj CMakeFiles/sfml.dir/files/characters.cpp.obj CMakeFiles/sfml.dir/files/PacMan.cpp.obj | C$:/SFML-2.6.1/lib/libsfml-graphics-s-d.a C$:/SFML-2.6.1/lib/libsfml-audio-s-d.a C$:/SFML-2.6.1/lib/libsfml-window-s-d.a C$:/SFML-2.6.1/lib/libfreetype.a C$:/SFML-2.6.1/lib/libopenal32.a C$:/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/SFML-2.6.1/lib/libvorbisfile.a C$:/SFML-2.6.1/lib/libvorbisenc.a C$:/SFML-2.6.1/lib/libvorbis.a C$:/SFML-2.6.1/lib/libogg.a C$:/SFML-2.6.1/lib/libFLAC.a
   FLAGS = -g
   LINK_LIBRARIES = C:/SFML-2.6.1/lib/libsfml-graphics-s-d.a  C:/SFML-2.6.1/lib/libsfml-audio-s-d.a  C:/SFML-2.6.1/lib/libsfml-window-s-d.a  -lOpenGL32  -lgdi32  C:/SFML-2.6.1/lib/libfreetype.a  C:/SFML-2.6.1/lib/libopenal32.a  C:/SFML-2.6.1/lib/libsfml-system-s-d.a  -lwinmm  C:/SFML-2.6.1/lib/libvorbisfile.a  C:/SFML-2.6.1/lib/libvorbisenc.a  C:/SFML-2.6.1/lib/libvorbis.a  C:/SFML-2.6.1/lib/libogg.a  C:/SFML-2.6.1/lib/libFLAC.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\sfml.dir
