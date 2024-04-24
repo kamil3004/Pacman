@@ -13,6 +13,3 @@ PacMan::PacMan() {
 void PacMan::move() {
 
 }
-int PacMan::Pints(point) {
-    return point;
-}

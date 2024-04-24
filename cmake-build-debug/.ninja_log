@@ -3,3 +3,7 @@
 640	753	7356769029882965	sfml1.exe	ba9c38a5ab0783d8
 8	708	7356773627193808	CMakeFiles/sfml.dir/main.cpp.obj	e5b65f2edea83d68
 4	450	7356800724712002	build.ninja	6cd2bbd81a5a83bc
+17	751	7356813926353045	CMakeFiles/sfml.dir/files/characters.cpp.obj	b1bd5eb1bc0716cb
+12	604	7356814217691941	CMakeFiles/sfml.dir/files/PacMan.cpp.obj	88de4fc77aef9b59
+7	597	7356814466911214	CMakeFiles/sfml.dir/files/GameBoard.cpp.obj	6543e41f4e23e549
+598	1100	7356814471877922	sfml.exe	13785f0c059754f5

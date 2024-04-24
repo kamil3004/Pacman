@@ -4,6 +4,4 @@
 
 #include "GameBoard.h"
 #include <iostream>
-void GameBoard::getPoints() {
-    std::cout points;
-}
+

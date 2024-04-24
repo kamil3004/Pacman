@@ -3,7 +3,7 @@
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
-   sf::RenderWindow window(sf::VideoMode(400, 400), "lollll");
+   sf::RenderWindow window(sf::VideoMode(400, 400), "PacMan");
     while (window.isOpen())
     {
 
