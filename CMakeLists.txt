@@ -41,6 +41,8 @@ add_executable(sfml main.cpp
         files/characters.cpp
         files/characters.h
         files/PacMan.cpp
-        files/PacMan.h)
+        files/PacMan.h
+        files/Ghost.cpp
+        files/Ghost.h)
 target_link_libraries(sfml sfml-graphics sfml-audio)
 

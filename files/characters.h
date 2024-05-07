@@ -8,7 +8,7 @@
 
 class characters {
 public:
-    void move();
+    //void move();
 protected:
     sf::Vector2f position;
 };
