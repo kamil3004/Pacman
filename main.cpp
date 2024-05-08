@@ -50,7 +50,8 @@ int main() {
         board.draw(window);
         pacman.draw(window);
         ghost.draw(window);
-        //ghost.moveRandom();
+        //pacman.displayPosition();
+        ghost.moveRandom();
 
         window.display();
     }

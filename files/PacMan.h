@@ -20,6 +20,7 @@ public:
     sf::Vector2f getPosition() const;
     float getSpeed() const;
     float getRadius() const;
+    void displayPosition() const;
 };
 
 

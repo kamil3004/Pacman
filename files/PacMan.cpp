@@ -3,6 +3,7 @@
 //
 #include <SFML/Graphics.hpp>
 #include "PacMan.h"
+#include <iostream>
 
 PacMan::PacMan(float radius, float speed) : speed(speed) {
     shape.setRadius(radius);
@@ -20,6 +21,7 @@ void PacMan::draw(sf::RenderWindow& window) const {
 
 sf::Vector2f PacMan::getPosition() const {
     return shape.getPosition();
+
 }
 
 float PacMan::getSpeed() const {
@@ -28,4 +30,9 @@ float PacMan::getSpeed() const {
 
 float PacMan::getRadius() const {
     return shape.getRadius();
+}
+void PacMan::displayPosition() const {
+    int x = position.x;
+    int y = position.y;
+    std::cout << x << " " << y << std::endl;
 }
