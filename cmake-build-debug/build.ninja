@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: project1
+# Project: PacMan
 # Configurations: Debug
 # =============================================================================
 
@@ -41,71 +41,71 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Users/admin/CLionProjects/project1/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target sfml
+# Object build statements for EXECUTABLE target 2
 
 
 #############################################
-# Order-only phony target for sfml
+# Order-only phony target for 2
 
-build cmake_object_order_depends_target_sfml: phony || CMakeFiles/sfml.dir
+build cmake_object_order_depends_target_2: phony || CMakeFiles/2.dir
 
-build CMakeFiles/sfml.dir/main.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/Users/admin/CLionProjects/project1/main.cpp || cmake_object_order_depends_target_sfml
+build CMakeFiles/2.dir/main.cpp.obj: CXX_COMPILER__2_unscanned_Debug C$:/Users/admin/CLionProjects/project1/main.cpp || cmake_object_order_depends_target_2
   DEFINES = -DSFML_STATIC
-  DEP_FILE = CMakeFiles\sfml.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -Wall -Wextra
+  DEP_FILE = CMakeFiles\2.dir\main.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem C:/SFML-2.6.1/include
-  OBJECT_DIR = CMakeFiles\sfml.dir
-  OBJECT_FILE_DIR = CMakeFiles\sfml.dir
+  OBJECT_DIR = CMakeFiles\2.dir
+  OBJECT_FILE_DIR = CMakeFiles\2.dir
 
-build CMakeFiles/sfml.dir/files/GameBoard.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/GameBoard.cpp || cmake_object_order_depends_target_sfml
+build CMakeFiles/2.dir/files/GameBoard.cpp.obj: CXX_COMPILER__2_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/GameBoard.cpp || cmake_object_order_depends_target_2
   DEFINES = -DSFML_STATIC
-  DEP_FILE = CMakeFiles\sfml.dir\files\GameBoard.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -Wall -Wextra
+  DEP_FILE = CMakeFiles\2.dir\files\GameBoard.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem C:/SFML-2.6.1/include
-  OBJECT_DIR = CMakeFiles\sfml.dir
-  OBJECT_FILE_DIR = CMakeFiles\sfml.dir\files
+  OBJECT_DIR = CMakeFiles\2.dir
+  OBJECT_FILE_DIR = CMakeFiles\2.dir\files
 
-build CMakeFiles/sfml.dir/files/characters.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/characters.cpp || cmake_object_order_depends_target_sfml
+build CMakeFiles/2.dir/files/characters.cpp.obj: CXX_COMPILER__2_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/characters.cpp || cmake_object_order_depends_target_2
   DEFINES = -DSFML_STATIC
-  DEP_FILE = CMakeFiles\sfml.dir\files\characters.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -Wall -Wextra
+  DEP_FILE = CMakeFiles\2.dir\files\characters.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem C:/SFML-2.6.1/include
-  OBJECT_DIR = CMakeFiles\sfml.dir
-  OBJECT_FILE_DIR = CMakeFiles\sfml.dir\files
+  OBJECT_DIR = CMakeFiles\2.dir
+  OBJECT_FILE_DIR = CMakeFiles\2.dir\files
 
-build CMakeFiles/sfml.dir/files/PacMan.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/PacMan.cpp || cmake_object_order_depends_target_sfml
+build CMakeFiles/2.dir/files/PacMan.cpp.obj: CXX_COMPILER__2_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/PacMan.cpp || cmake_object_order_depends_target_2
   DEFINES = -DSFML_STATIC
-  DEP_FILE = CMakeFiles\sfml.dir\files\PacMan.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -Wall -Wextra
+  DEP_FILE = CMakeFiles\2.dir\files\PacMan.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem C:/SFML-2.6.1/include
-  OBJECT_DIR = CMakeFiles\sfml.dir
-  OBJECT_FILE_DIR = CMakeFiles\sfml.dir\files
+  OBJECT_DIR = CMakeFiles\2.dir
+  OBJECT_FILE_DIR = CMakeFiles\2.dir\files
 
-build CMakeFiles/sfml.dir/files/Ghost.cpp.obj: CXX_COMPILER__sfml_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/Ghost.cpp || cmake_object_order_depends_target_sfml
+build CMakeFiles/2.dir/files/Ghost.cpp.obj: CXX_COMPILER__2_unscanned_Debug C$:/Users/admin/CLionProjects/project1/files/Ghost.cpp || cmake_object_order_depends_target_2
   DEFINES = -DSFML_STATIC
-  DEP_FILE = CMakeFiles\sfml.dir\files\Ghost.cpp.obj.d
-  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always -Wall -Wextra
+  DEP_FILE = CMakeFiles\2.dir\files\Ghost.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -isystem C:/SFML-2.6.1/include
-  OBJECT_DIR = CMakeFiles\sfml.dir
-  OBJECT_FILE_DIR = CMakeFiles\sfml.dir\files
+  OBJECT_DIR = CMakeFiles\2.dir
+  OBJECT_FILE_DIR = CMakeFiles\2.dir\files
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target sfml
+# Link build statements for EXECUTABLE target 2
 
 
 #############################################
-# Link the executable sfml.exe
+# Link the executable 2.exe
 
-build sfml.exe: CXX_EXECUTABLE_LINKER__sfml_Debug CMakeFiles/sfml.dir/main.cpp.obj CMakeFiles/sfml.dir/files/GameBoard.cpp.obj CMakeFiles/sfml.dir/files/characters.cpp.obj CMakeFiles/sfml.dir/files/PacMan.cpp.obj CMakeFiles/sfml.dir/files/Ghost.cpp.obj | C$:/SFML-2.6.1/lib/libsfml-graphics-s-d.a C$:/SFML-2.6.1/lib/libsfml-audio-s-d.a C$:/SFML-2.6.1/lib/libsfml-window-s-d.a C$:/SFML-2.6.1/lib/libfreetype.a C$:/SFML-2.6.1/lib/libopenal32.a C$:/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/SFML-2.6.1/lib/libvorbisfile.a C$:/SFML-2.6.1/lib/libvorbisenc.a C$:/SFML-2.6.1/lib/libvorbis.a C$:/SFML-2.6.1/lib/libogg.a C$:/SFML-2.6.1/lib/libFLAC.a
+build 2.exe: CXX_EXECUTABLE_LINKER__2_Debug CMakeFiles/2.dir/main.cpp.obj CMakeFiles/2.dir/files/GameBoard.cpp.obj CMakeFiles/2.dir/files/characters.cpp.obj CMakeFiles/2.dir/files/PacMan.cpp.obj CMakeFiles/2.dir/files/Ghost.cpp.obj | C$:/SFML-2.6.1/lib/libsfml-graphics-s-d.a C$:/SFML-2.6.1/lib/libsfml-window-s-d.a C$:/SFML-2.6.1/lib/libsfml-system-s-d.a C$:/SFML-2.6.1/lib/libfreetype.a
   FLAGS = -g
-  LINK_LIBRARIES = C:/SFML-2.6.1/lib/libsfml-graphics-s-d.a  C:/SFML-2.6.1/lib/libsfml-audio-s-d.a  C:/SFML-2.6.1/lib/libsfml-window-s-d.a  -lOpenGL32  -lgdi32  C:/SFML-2.6.1/lib/libfreetype.a  C:/SFML-2.6.1/lib/libopenal32.a  C:/SFML-2.6.1/lib/libsfml-system-s-d.a  -lwinmm  C:/SFML-2.6.1/lib/libvorbisfile.a  C:/SFML-2.6.1/lib/libvorbisenc.a  C:/SFML-2.6.1/lib/libvorbis.a  C:/SFML-2.6.1/lib/libogg.a  C:/SFML-2.6.1/lib/libFLAC.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\sfml.dir
+  LINK_LIBRARIES = C:/SFML-2.6.1/lib/libsfml-graphics-s-d.a  C:/SFML-2.6.1/lib/libsfml-window-s-d.a  C:/SFML-2.6.1/lib/libsfml-system-s-d.a  -lOpenGL32  -lwinmm  -lgdi32  C:/SFML-2.6.1/lib/libfreetype.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  OBJECT_DIR = CMakeFiles\2.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_FILE = sfml.exe
-  TARGET_IMPLIB = libsfml.dll.a
-  TARGET_PDB = sfml.exe.dbg
+  TARGET_FILE = 2.exe
+  TARGET_IMPLIB = lib2.dll.a
+  TARGET_PDB = 2.exe.dbg
 
 
 #############################################
@@ -133,7 +133,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build sfml: phony sfml.exe
+build 2: phony 2.exe
 
 # =============================================================================
 # Folder targets.
@@ -143,7 +143,7 @@ build sfml: phony sfml.exe
 #############################################
 # Folder: C:/Users/admin/CLionProjects/project1/cmake-build-debug
 
-build all: phony sfml.exe
+build all: phony 2.exe
 
 # =============================================================================
 # Built-in targets

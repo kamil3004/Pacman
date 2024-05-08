@@ -28,16 +28,16 @@ int main() {
                 // Obsługa ruchu Pac-Mana za pomocą strzałek
                 switch (event.key.code) {
                     case sf::Keyboard::Up:
-                        pacman.move(sf::Vector2f(0.f, -40.f)); // Przesuń o jedno pole do góry (40 pikseli)
+                        pacman.move(sf::Vector2f(0.f, -20.f)); // Przesuń o jedno pole do góry (40 pikseli)
                         break;
                     case sf::Keyboard::Down:
-                        pacman.move(sf::Vector2f(0.f, 40.f)); // Przesuń o jedno pole w dół (40 pikseli)
+                        pacman.move(sf::Vector2f(0.f, 20.f)); // Przesuń o jedno pole w dół (40 pikseli)
                         break;
                     case sf::Keyboard::Left:
-                        pacman.move(sf::Vector2f(-40.f, 0.f)); // Przesuń o jedno pole w lewo (40 pikseli)
+                        pacman.move(sf::Vector2f(-20.f, 0.f)); // Przesuń o jedno pole w lewo (40 pikseli)
                         break;
                     case sf::Keyboard::Right:
-                        pacman.move(sf::Vector2f(40.f, 0.f)); // Przesuń o jedno pole w prawo (40 pikseli)
+                        pacman.move(sf::Vector2f(20.f, 0.f)); // Przesuń o jedno pole w prawo (40 pikseli)
                         break;
                     default:
                         break;
@@ -50,8 +50,9 @@ int main() {
         board.draw(window);
         pacman.draw(window);
         ghost.draw(window);
-        //pacman.displayPosition();
+        pacman.displayPosition();
         ghost.moveRandom();
+
 
         window.display();
     }

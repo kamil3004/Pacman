@@ -9,6 +9,9 @@ PacMan::PacMan(float radius, float speed) : speed(speed) {
     shape.setRadius(radius);
     shape.setFillColor(sf::Color::Yellow);
     shape.setOrigin(radius, radius);
+    shape.setPosition(10,10);
+    //position.x=10;
+    //position.y=10;
 }
 
 void PacMan::move(sf::Vector2f offset) {
@@ -21,7 +24,6 @@ void PacMan::draw(sf::RenderWindow& window) const {
 
 sf::Vector2f PacMan::getPosition() const {
     return shape.getPosition();
-
 }
 
 float PacMan::getSpeed() const {
@@ -32,7 +34,6 @@ float PacMan::getRadius() const {
     return shape.getRadius();
 }
 void PacMan::displayPosition() const {
-    int x = position.x;
-    int y = position.y;
-    std::cout << x << " " << y << std::endl;
+    sf::Vector2f pacmanPosition = getPosition();
+    std::cout << "Pacman position: (" << pacmanPosition.x << ", " << pacmanPosition.y << ")" << std::endl;
 }

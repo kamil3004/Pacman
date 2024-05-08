@@ -11,8 +11,9 @@ Ghost::Ghost(float radius, float speed) : speed(speed) {
     shape.setFillColor(sf::Color::Red);
     shape.setOrigin(radius, radius);
     srand(time(NULL));
-    position.x=100;
-    position.y=200;
+    shape.setPosition(10,10);
+    position.x=10;
+    position.y=20;
 }
 
 void Ghost::moveRandom() {
