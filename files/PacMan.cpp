@@ -52,6 +52,9 @@ void PacMan::move(sf::Time deltaTime, GameBoard& board) {
     if (board.checkCollision(shape)) {
         // Revert to previous position if collision detected
         shape.setPosition(currentPosition);
+    }else {
+        // Sprawdź kolizję z kropkami
+        board.checkDotCollision(shape);
     }
 }
 

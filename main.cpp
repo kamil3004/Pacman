@@ -7,16 +7,20 @@
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Pacman Game");
-
+    GameBoard board;
     PacMan pacman;
+    Ghost ghost;
+
+
+    sf::RenderWindow window(sf::VideoMode(800+40, 800+40+40), "Pacman Game");
+
+
     pacman.setSpeed(200.0f);
     pacman.setPosition(400.0f, 300.0f);
 
-    Ghost ghost;
+
     ghost.setPosition(100.0f, 100.0f);
 
-    GameBoard board;
 
     sf::Clock clock;
 

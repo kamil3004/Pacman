@@ -41,6 +41,12 @@ void GameBoard::loadBoard() {
                 wall.setPosition(x * tileSize.x, y * tileSize.y);
                 wall.setFillColor(sf::Color::Blue);
                 walls.push_back(wall);
+            } else if (level[y][x] == '.') {
+                sf::CircleShape dot(5.0f);
+                dot.setFillColor(sf::Color::White);
+                dot.setOrigin(dot.getRadius(), dot.getRadius());
+                dot.setPosition(x * tileSize.x + tileSize.x / 2, y * tileSize.y + tileSize.y / 2);
+                dots.push_back(dot);
             }
         }
     }
@@ -49,6 +55,9 @@ void GameBoard::loadBoard() {
 void GameBoard::draw(sf::RenderWindow& window) {
     for (const auto& wall : walls) {
         window.draw(wall);
+    }
+    for (const auto& dot : dots) {
+        window.draw(dot);
     }
 }
 
@@ -59,4 +68,13 @@ bool GameBoard::checkCollision(const sf::CircleShape& shape) {
         }
     }
     return false;
+}
+void GameBoard::checkDotCollision(sf::CircleShape& pacmanShape) {
+    for (auto it = dots.begin(); it != dots.end();) {
+        if (pacmanShape.getGlobalBounds().intersects(it->getGlobalBounds())) {
+            it = dots.erase(it);
+        } else {
+            ++it;
+        }
+    }
 }

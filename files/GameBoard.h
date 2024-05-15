@@ -20,10 +20,12 @@ class GameBoard {
 private:
     std::vector<sf::RectangleShape> walls;
     sf::Vector2f tileSize;
+    std::vector<sf::CircleShape> dots;
 public:
     GameBoard();
     void draw(sf::RenderWindow& window);
     void loadBoard();
     bool checkCollision(const sf::CircleShape& shape);
+    void checkDotCollision(sf::CircleShape& pacmanShape);
 };
 #endif //PROJECT1_GAMEBOARD_H
