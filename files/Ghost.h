@@ -15,12 +15,13 @@ private:
     sf::Vector2f direction;
 
 public:
-    Ghost(float radius = 15.0f, float speed = 150.0f);
+    Ghost(float radius = 10.0f, float speed = 100.0f);
     void setPosition(float x, float y);
     sf::Vector2f getPosition() const;
     void move(sf::Time deltaTime, GameBoard& board);
     void chase(sf::Vector2f pacmanPosition, sf::Time deltaTime, GameBoard& board);
     void draw(sf::RenderWindow& window);
+    void chase1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
 
 
    // void moveRandom();

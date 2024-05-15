@@ -51,6 +51,35 @@ void Ghost::chase(sf::Vector2f pacmanPosition, sf::Time deltaTime, GameBoard& bo
 void Ghost::draw(sf::RenderWindow& window) {
     window.draw(shape);
 }
+void Ghost::chase1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board) {
+    float moveDistance = speed * deltaTime.asSeconds();
+    sf::Vector2f ghostPosition = shape.getPosition();
+    sf::Vector2f direction = pacmanPosition - ghostPosition;
+    float distance = std::sqrt(direction.x * direction.x + direction.y * direction.y);
+
+    if (distance != 0) {
+        direction /= distance; // Normalizacja wektora kierunku
+    }
+
+    sf::Vector2f newPosition = ghostPosition + direction * moveDistance;
+
+    // Backup current position
+    sf::Vector2f currentPosition = shape.getPosition();
+
+    shape.setPosition(newPosition);
+
+    // Sprawdź kolizję z przeszkodami
+    if (board.checkCollision(shape)) {
+        // Revert to previous position if collision detected
+        shape.setPosition(currentPosition);
+    }
+}
+
+
+
+
+
+
 /*
 void Ghost::moveRandom() {
     // Wybierz losowy kierunek ruchu - góra (1) lub dół (-1)

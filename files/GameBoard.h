@@ -7,14 +7,9 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 
+
 enum GameState{RUNNING, FINISHED_WIN, FINISHED_LOSS};
-struct Field
-{
-    bool hasGhost;
-    bool hasPacman;
-    bool hasDot;
-    bool hasBigDot;
-};
+
 
 class GameBoard {
 private:

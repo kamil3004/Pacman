@@ -15,7 +15,7 @@ class PacMan : public characters {
     sf::CircleShape shape;
     int score;
 public:
-    PacMan(float radius = 16.f, float speed=250.0f);
+    PacMan(float radius = 10.f, float speed=250.0f);
     void setPosition(float x, float y);
     sf::Vector2f getPosition() const;
     void setSpeed(float newSpeed);
