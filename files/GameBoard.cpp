@@ -3,42 +3,60 @@
 //
 
 #include "GameBoard.h"
-#include "PacMan.h"
-#include "characters.h"
-#include "Ghost.h"
 #include <iostream>
 
-GameBoard::GameBoard() {
-    // Inicjalizacja tekstury ściany
-    wallTexture.loadFromFile("../files/wall.png");
-        // Obsługa błędu, jeśli nie udało się załadować tekstury
-        // Można też użyć domyślnej koloru ściany lub innego pliku graficznego
-        // np. wallTexture.loadFromFile("default_wall_texture.png");
-        // lub wallSprite.setFillColor(sf::Color::Blue);
+GameBoard::GameBoard() : tileSize(40.0f, 40.0f) {
+    loadBoard();
+}
 
-    wallSprite.setTexture(wallTexture);
+void GameBoard::loadBoard() {
+    std::vector<std::string> level = {
+            " ################### ",
+            " #........#........# ",
+            " #.##.###.#.###.##.# ",
+            " #.................# ",
+            " #.##.#.#####.#.##.# ",
+            " #....#...#...#....# ",
+            " ####.### # ###.#### ",
+            "    #.#       #.#    ",
+            "#####.# ##=## #.#####",
+            "     .  #####  .     ",
+            "#####.# ##### #.#####",
+            "    #.#       #.#    ",
+            " ####.# ##### #.#### ",
+            " #........#........# ",
+            " #.##.###.#.###.##.# ",
+            " #..#.....P.....#..# ",
+            " ##.#.#.#####.#.#.## ",
+            " #....#...#...#....# ",
+            " #.######.#.######.# ",
+            " #.................# ",
+            " ################### "
+    };
 
-    // Ustawienie kształtów labiryntu
-    for (int i = 0; i < 20; ++i) {
-        for (int j = 0; j < 20; ++j) {
-            if (i == 0 || i == 19 || j == 0 || j == 19) {
-                // Jeśli to krawędź planszy, ustaw ścianę
-                maze[i][j].setSize(sf::Vector2f(20, 20)); // Rozmiar pojedynczego pola na planszy
-                maze[i][j].setFillColor(sf::Color::Blue); // Kolor ściany
-                maze[i][j].setPosition(i * 40, j * 40); // Pozycja na planszy
+    for (int y = 0; y < level.size(); ++y) {
+        for (int x = 0; x < level[y].size(); ++x) {
+            if (level[y][x] == '#') {
+                sf::RectangleShape wall(tileSize);
+                wall.setPosition(x * tileSize.x, y * tileSize.y);
+                wall.setFillColor(sf::Color::Blue);
+                walls.push_back(wall);
             }
         }
     }
 }
 
-void GameBoard::draw(sf::RenderWindow& window) const {
-    // Rysowanie labiryntu
-    for (int i = 0; i < 20; ++i) {
-        for (int j = 0; j < 20; ++j) {
-            if (i == 0 || i == 19 || j == 0 || j == 19) {
-                // Rysuj ścianę
-                window.draw(maze[i][j]);
-            }
+void GameBoard::draw(sf::RenderWindow& window) {
+    for (const auto& wall : walls) {
+        window.draw(wall);
+    }
+}
+
+bool GameBoard::checkCollision(const sf::CircleShape& shape) {
+    for (const auto& wall : walls) {
+        if (shape.getGlobalBounds().intersects(wall.getGlobalBounds())) {
+            return true;
         }
     }
+    return false;
 }

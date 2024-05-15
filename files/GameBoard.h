@@ -4,8 +4,8 @@
 
 #ifndef PROJECT1_GAMEBOARD_H
 #define PROJECT1_GAMEBOARD_H
-#include "PacMan.h"
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 enum GameState{RUNNING, FINISHED_WIN, FINISHED_LOSS};
 struct Field
@@ -18,13 +18,12 @@ struct Field
 
 class GameBoard {
 private:
-    sf::RectangleShape maze[20][20]; // rozmiar planszy
-    sf::Texture wallTexture;
-    sf::Sprite wallSprite;
-
+    std::vector<sf::RectangleShape> walls;
+    sf::Vector2f tileSize;
 public:
     GameBoard();
-
-    void draw(sf::RenderWindow& window) const;
+    void draw(sf::RenderWindow& window);
+    void loadBoard();
+    bool checkCollision(const sf::CircleShape& shape);
 };
 #endif //PROJECT1_GAMEBOARD_H

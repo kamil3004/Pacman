@@ -8,7 +8,7 @@
 
 class characters {
 public:
-    //void move();
+    sf::CircleShape shape;
 protected:
     sf::Vector2f position;
 };

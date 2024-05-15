@@ -5,22 +5,30 @@
 #ifndef PROJECT1_PACMAN_H
 #define PROJECT1_PACMAN_H
 #include "characters.h"
+#include "GameBoard.h"
 
 
 class PacMan : public characters {
     bool dead;
     char direction;
-    sf::CircleShape shape;
     float speed;
-
+    sf::CircleShape shape;
 public:
-    PacMan(float radius = 10.f, float speed = 5.f);
-    void move(sf::Vector2f offset);
-    void draw(sf::RenderWindow& window) const;
+    PacMan(float radius = 16.f, float speed=250.0f);
+    void setPosition(float x, float y);
     sf::Vector2f getPosition() const;
+    void setSpeed(float newSpeed);
+
+    void move(sf::Time deltaTime, GameBoard& board);
+    void draw(sf::RenderWindow& window);
+
+
+
+   // void draw(sf::RenderWindow& window);
     float getSpeed() const;
     float getRadius() const;
     void displayPosition() const;
+
 };
 
 
