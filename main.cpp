@@ -20,7 +20,15 @@ int main()
 
 
     ghost.setPosition(100.0f, 100.0f);
-
+    sf::Font font;
+    if (!font.loadFromFile("..//files/arial.ttf")) {
+        return -1;
+    }
+    sf::Text scoreText;
+    scoreText.setFont(font);
+    scoreText.setCharacterSize(24);
+    scoreText.setFillColor(sf::Color::White);
+    scoreText.setPosition(10, 840);
 
     sf::Clock clock;
 
@@ -40,6 +48,9 @@ int main()
         board.draw(window);
         pacman.draw(window);
         ghost.draw(window);
+        //Wyświetlanie punktów
+        scoreText.setString("Score: " + std::to_string(pacman.getScore()));
+        window.draw(scoreText);
         window.display();
     }
     return 0;

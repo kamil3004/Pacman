@@ -3,11 +3,11 @@
 //
 #include <SFML/Graphics.hpp>
 #include "PacMan.h"
-#include "GameBoard.h"
+//#include "GameBoard.h"
 #include <iostream>
 
 //GameBoard Board;
-PacMan::PacMan(float radius, float speed) : speed(speed) {
+PacMan::PacMan(float radius, float speed) : speed(speed), score(0) {
     shape.setRadius(radius);
     shape.setFillColor(sf::Color::Yellow);
     shape.setOrigin(radius, radius);
@@ -54,7 +54,7 @@ void PacMan::move(sf::Time deltaTime, GameBoard& board) {
         shape.setPosition(currentPosition);
     }else {
         // Sprawdź kolizję z kropkami
-        board.checkDotCollision(shape);
+        score += board.checkDotCollision(shape);
     }
 }
 
@@ -73,3 +73,6 @@ void PacMan::displayPosition() const {
     std::cout << "Pacman position: (" << pacmanPosition.x << ", " << pacmanPosition.y << ")" << std::endl;
 }
 
+int PacMan::getScore() const {
+    return score;
+}

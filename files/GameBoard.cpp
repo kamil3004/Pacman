@@ -69,12 +69,15 @@ bool GameBoard::checkCollision(const sf::CircleShape& shape) {
     }
     return false;
 }
-void GameBoard::checkDotCollision(sf::CircleShape& pacmanShape) {
+int GameBoard::checkDotCollision(sf::CircleShape& pacmanShape) {
+    int points = 0;
     for (auto it = dots.begin(); it != dots.end();) {
         if (pacmanShape.getGlobalBounds().intersects(it->getGlobalBounds())) {
             it = dots.erase(it);
+            points++;
         } else {
             ++it;
         }
     }
+    return points;
 }
