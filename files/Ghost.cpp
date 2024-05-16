@@ -14,17 +14,15 @@ Ghost::Ghost(float radius, float speed) : speed(speed) {
     shape.setOrigin(radius, radius);
 }
 
-void Ghost::setPosition(float x, float y) {
-    shape.setPosition(x, y);
-}
+//void Ghost::setPosition(float x, float y) {
+//    shape.setPosition(x, y);
+//}
 
 sf::Vector2f Ghost::getPosition() const {
     return shape.getPosition();
 }
 void Ghost::move(sf::Time deltaTime, GameBoard& board) {
     sf::Vector2f newPosition = shape.getPosition() + direction * speed * deltaTime.asSeconds();
-
-    // Backup current position
     sf::Vector2f currentPosition = shape.getPosition();
 
     shape.setPosition(newPosition);
@@ -42,7 +40,7 @@ void Ghost::chase(sf::Vector2f pacmanPosition, sf::Time deltaTime, GameBoard& bo
     float length = std::sqrt(difference.x * difference.x + difference.y * difference.y);
 
     if (length != 0) {
-        direction = difference / length; // Normalizacja wektora
+        direction = difference / length;
     }
 
     move(deltaTime, board);
@@ -58,7 +56,7 @@ void Ghost::chase1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameB
     float distance = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 
     if (distance != 0) {
-        direction /= distance; // Normalizacja wektora kierunku
+        direction /= distance;
     }
 
     sf::Vector2f newPosition = ghostPosition + direction * moveDistance;

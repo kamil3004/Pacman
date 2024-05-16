@@ -7,19 +7,19 @@
 int main()
 {
     GameBoard board;
-    PacMan pacman;
-    Ghost ghost;
-    Ghost ghost1;
+    PacMan pacman(5,250.0f);
+    Ghost ghost(5);
+    Ghost ghost1(5);
 
 
-    sf::RenderWindow window(sf::VideoMode(840, 880), "Pacman Game", sf::Style::Resize | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(840/2, 880/2), "Pacman Game", sf::Style::Resize | sf::Style::Close);
 
 
     pacman.setSpeed(200.0f);
-    pacman.setPosition(420.0f, 620.0f);
+    pacman.setPosition(420.0f/2, 620.0f/2);
 
-    ghost.setPosition(90.0f, 90.0f);
-    ghost1.setPosition(620.0f,360.0f);
+    ghost.setPosition(90.0f/2, 90.0f/2);
+    ghost1.setPosition(620.0f/2,360.0f/2);
 
 
 
@@ -29,9 +29,16 @@ int main()
     }
     sf::Text scoreText;
     scoreText.setFont(font);
-    scoreText.setCharacterSize(24);
+    scoreText.setCharacterSize(24/2);
     scoreText.setFillColor(sf::Color::White);
-    scoreText.setPosition(10, 840);
+    scoreText.setPosition(10, 840/2);
+    sf::Text Text;
+    Text.setFont(font);
+    Text.setCharacterSize(24);
+    Text.setFillColor(sf::Color::Red);
+    Text.setPosition(30, 840/2);
+
+
 
     sf::Clock clock;
 
@@ -44,32 +51,33 @@ int main()
                 window.close();
 
         }
-        if(pacman.getPosition()==ghost.getPosition()|| pacman.getPosition()==ghost1.getPosition()){
-
-            std::cout << "You lose ";
-            window.close();
-        }
         pacman.move(deltaTime, board);
         ghost1.chase1(pacman.getPosition(),deltaTime,board);
         ghost.chase1(pacman.getPosition(), deltaTime, board);
+        ghost.move(deltaTime,board);
         pacman.getPosition();
         ghost.getPosition();
 
+
+        window.clear();
         if (pacman.getPosition()==ghost.getPosition())
         {
             std::cout<<"You lose" ;
-            window.close();
+            scoreText.setString("You Lose!! Score: " + std::to_string(pacman.getScore()));
+            window.draw(Text);
+           // break;
+            //window.close();
 
         }
         if (pacman.getScore()==150)
         {
             std::cout<<"You win!! " ;
-            window.close();
+            scoreText.setString("You win!! Score: " + std::to_string(pacman.getScore()));
+            window.draw(Text);
+           // break;
+            //window.close();
 
         }
-
-
-        window.clear();
         board.draw(window);
         pacman.draw(window);
         ghost.draw(window);

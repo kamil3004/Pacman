@@ -4,3 +4,7 @@
 
 #include "characters.h"
 
+//przenieść tu set position
+void characters::setPosition(float x, float y) {
+    shape.setPosition(x, y);
+}

@@ -11,8 +11,6 @@ link_directories(SFML_LIBRARY_DIR)
 include_directories(SFML_INCLUDE_DIR)
 endif(UNIX)
 
-
-
 if (WIN32)
     # próbujemy linkować statycznie (nie trzeba kopiować plików dll do katalogu projektu)
     set( SFML_STATIC_LIBRARIES TRUE )
