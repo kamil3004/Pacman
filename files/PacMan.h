@@ -22,12 +22,12 @@ public:
     void move(sf::Time deltaTime, GameBoard& board);
     void draw(sf::RenderWindow& window);
     int getScore() const;
-
-
-
-   // void draw(sf::RenderWindow& window);
-    float getSpeed() const;
     float getRadius() const;
+    void eatDot();
+    void resetScore();
+
+
+    float getSpeed() const;
     void displayPosition() const;
 
 };

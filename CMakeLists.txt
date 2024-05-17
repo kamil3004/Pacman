@@ -30,5 +30,7 @@ add_executable(2 main.cpp
         files/PacMan.cpp
         files/PacMan.h
         files/Ghost.cpp
-        files/Ghost.h)
+        files/Ghost.h
+        files/Game_contrl.cpp
+        files/Game_contrl.h)
 target_link_libraries (2 sfml-graphics sfml-window sfml-system)

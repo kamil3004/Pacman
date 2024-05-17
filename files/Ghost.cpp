@@ -12,6 +12,7 @@ Ghost::Ghost(float radius, float speed) : speed(speed) {
     shape.setRadius(radius);
     shape.setFillColor(sf::Color::Red);
     shape.setOrigin(radius, radius);
+    std::srand(std::time(nullptr));
 }
 
 void Ghost::setPosition(float x, float y) {
@@ -36,29 +37,67 @@ void Ghost::move(sf::Time deltaTime, GameBoard& board) {
     }
 }
 
-void Ghost::chase(sf::Vector2f pacmanPosition, sf::Time deltaTime, GameBoard& board) {
-    sf::Vector2f ghostPosition = getPosition();
-    sf::Vector2f difference = pacmanPosition - ghostPosition;
-    float length = std::sqrt(difference.x * difference.x + difference.y * difference.y);
-
-    if (length != 0) {
-        direction = difference / length; // Normalizacja wektora
-    }
-
-    move(deltaTime, board);
-}
+//void Ghost::chase1(const sf::Vector2f pacmanPosition, sf::Time deltaTime, GameBoard& board) {
+//    sf::Vector2f ghostPosition = getPosition();
+//    sf::Vector2f difference = pacmanPosition - ghostPosition;
+//    float length = std::sqrt(difference.x * difference.x + difference.y * difference.y);
+//
+//    if (length != 0) {
+//        direction = difference / length; // Normalizacja wektora
+//    }
+//
+//    move(deltaTime, board);
+//}
 
 void Ghost::draw(sf::RenderWindow& window) {
     window.draw(shape);
 }
-void Ghost::chase1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board) {
+void Ghost::chase(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board) {
+    sf::Vector2f direction = pacmanPosition - shape.getPosition();
+
+    // Normalizacja wektora kierunku
+    float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);
+    direction /= length;
+
+    // Oblicz nową pozycję ducha na podstawie kierunku i prędkości
+    sf::Vector2f newPosition = shape.getPosition() + direction * speed * deltaTime.asSeconds();
+
+    // Sprawdź, czy nowa pozycja jest dozwolona na planszy
+    if (!board.checkCollision(shape)) {
+        shape.setPosition(newPosition);
+    } else {
+        // Jeśli napotkano przeszkodę, zmień kierunek ruchu w sposób losowy
+        int randomAngle = std::rand() % 360; // Losowy kąt od 0 do 359 stopni
+        float randomDirectionX = std::cos(randomAngle * 3.14159 / 180); // Przeliczenie na radiany
+        float randomDirectionY = std::sin(randomAngle * 3.14159 / 180);
+        sf::Vector2f randomDirection(randomDirectionX, randomDirectionY);
+        newPosition = shape.getPosition() + randomDirection * speed * deltaTime.asSeconds();
+
+        // Sprawdź, czy nowa pozycja pozwala na uniknięcie przeszkody
+        if (!board.checkCollision(shape)) {
+            shape.setPosition(newPosition);
+        }
+    }
+}
+void Ghost::chase_1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board) {
     float moveDistance = speed * deltaTime.asSeconds();
     sf::Vector2f ghostPosition = shape.getPosition();
     sf::Vector2f direction = pacmanPosition - ghostPosition;
     float distance = std::sqrt(direction.x * direction.x + direction.y * direction.y);
 
-    if (distance != 0) {
-        direction /= distance; // Normalizacja wektora kierunku
+    // Jeśli duch jest blisko Pacmana, wprowadź losowy ruch
+    if (distance < 40.0f) { // odległość w pikselach
+        int randomDirection = std::rand() % 4;
+        switch (randomDirection) {
+            case 0: direction = sf::Vector2f(1, 0); break; // prawo
+            case 1: direction = sf::Vector2f(-1, 0); break; // lewo
+            case 2: direction = sf::Vector2f(0, 1); break; // dół
+            case 3: direction = sf::Vector2f(0, -1); break; // góra
+        }
+    } else {
+        if (distance != 0) {
+            direction /= distance; // Normalizacja wektora kierunku
+        }
     }
 
     sf::Vector2f newPosition = ghostPosition + direction * moveDistance;
@@ -74,24 +113,9 @@ void Ghost::chase1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameB
         shape.setPosition(currentPosition);
     }
 }
-
-
-
-
-
-
-/*
-void Ghost::moveRandom() {
-    // Wybierz losowy kierunek ruchu - góra (1) lub dół (-1)
-    int dirY = (rand() % 2 == 0) ? 1 : -1; // 1 lub -1
-    int dirx = (rand() % 2 == 0) ? 1 : -1;
-
-    // Przesuń ducha o losową wartość w wybranym kierunku
-    shape.move(dirx, dirY * speed);
+void Ghost::setSpeed(float newSpeed) {
+    speed = newSpeed;
 }
-
-void Ghost::displayPosition() const {
-    sf::Vector2f ghostPosition = getPosition();
-    std::cout << "ghost position: (" << ghostPosition.x << ", " << ghostPosition.y << ")" << std::endl;
+float Ghost::getRadius() const {
+    return shape.getRadius();
 }
-*/

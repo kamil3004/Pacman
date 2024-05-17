@@ -19,10 +19,12 @@ public:
     void setPosition(float x, float y);
     sf::Vector2f getPosition() const;
     void move(sf::Time deltaTime, GameBoard& board);
-    void chase(sf::Vector2f pacmanPosition, sf::Time deltaTime, GameBoard& board);
+    void chase(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
     void draw(sf::RenderWindow& window);
-    void chase1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
-
+    void chase_1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
+    void setSpeed(float newSpeed);
+    float getRadius() const;
+    void chase2(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
 
    // void moveRandom();
     //void draw(sf::RenderWindow & window) const;

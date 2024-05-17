@@ -28,33 +28,32 @@ void PacMan::setSpeed(float newSpeed) {
 }
 
 void PacMan::move(sf::Time deltaTime, GameBoard& board) {
-
     float moveDistance = speed * deltaTime.asSeconds();
-    sf::Vector2f newPosition = shape.getPosition();
-
-    // Backup current position
-    sf::Vector2f currentPosition = shape.getPosition();
+    sf::Vector2f movement(0.0f, 0.0f);
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-        newPosition.y -= moveDistance;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-        newPosition.y += moveDistance;
+        movement.y -= moveDistance;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+        movement.y += moveDistance;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        newPosition.x -= moveDistance;
-    } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        newPosition.x += moveDistance;
+        movement.x -= moveDistance;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+        movement.x += moveDistance;
     }
 
+    sf::Vector2f newPosition = shape.getPosition() + movement;
+    sf::Vector2f currentPosition = shape.getPosition();
     shape.setPosition(newPosition);
 
-    // Sprawdź kolizję z przeszkodami
     if (board.checkCollision(shape)) {
-        // Revert to previous position if collision detected
         shape.setPosition(currentPosition);
-    }else {
-        // Sprawdź kolizję z kropkami
-        score += board.checkDotCollision(shape);
+    } else {
+        if (board.checkDotCollision(shape)) {
+            eatDot();
+        }
     }
 }
 
@@ -72,7 +71,13 @@ void PacMan::displayPosition() const {
     sf::Vector2f pacmanPosition = getPosition();
     std::cout << "Pacman position: (" << pacmanPosition.x << ", " << pacmanPosition.y << ")" << std::endl;
 }
-
+void PacMan::eatDot() {
+    score += 10;
+}
 int PacMan::getScore() const {
     return score;
+}
+
+void PacMan::resetScore() {
+    score = 0;
 }

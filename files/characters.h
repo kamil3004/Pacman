@@ -10,6 +10,7 @@ class characters {
 public:
     sf::CircleShape shape;
     void setPosition(float x, float y);
+    float getRadius() const;
 protected:
     sf::Vector2f position;
 };
