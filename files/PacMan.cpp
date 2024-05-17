@@ -15,10 +15,11 @@ PacMan::PacMan(float radius, float speed) : speed(speed), score(0) {
 
 
 }
-
+/*
 void PacMan::setPosition(float x, float y) {
     shape.setPosition(x, y);
 }
+ */
 sf::Vector2f PacMan::getPosition() const {
     return shape.getPosition();
 }

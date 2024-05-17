@@ -10,13 +10,13 @@
 
 class Ghost :public characters {
 private:
-    sf::CircleShape shape;
+    //sf::CircleShape shape;
     float speed;
     sf::Vector2f direction;
 
 public:
-    Ghost(float radius = 10.0f, float speed = 100.0f);
-    void setPosition(float x, float y);
+    Ghost( float radius = 10.0f/2, float speed = 100.0f);
+    //void setPosition(float x, float y);
     sf::Vector2f getPosition() const;
     void move(sf::Time deltaTime, GameBoard& board);
     void chase(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);

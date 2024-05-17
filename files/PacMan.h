@@ -12,11 +12,11 @@ class PacMan : public characters {
     bool dead;
     char direction;
     float speed;
-    sf::CircleShape shape;
+    //sf::CircleShape shape;
     int score;
 public:
-    PacMan(float radius = 10.f, float speed=250.0f);
-    void setPosition(float x, float y);
+    PacMan(float radius = 10.f/2, float speed=250.0f);
+    //void setPosition(float x, float y);
     sf::Vector2f getPosition() const;
     void setSpeed(float newSpeed);
     void move(sf::Time deltaTime, GameBoard& board);
