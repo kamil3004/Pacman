@@ -8,3 +8,15 @@
 void characters::setPosition(float x, float y) {
     shape.setPosition(x, y);
 }
+float characters::getRadius() const {
+    return shape.getRadius();
+}
+void characters::draw(sf::RenderWindow& window) {
+    window.draw(shape);
+}
+sf::Vector2f characters::getPosition() const{
+    return shape.getPosition();
+}
+void characters::setSpeed(float newSpeed) {
+    speed = newSpeed;
+}

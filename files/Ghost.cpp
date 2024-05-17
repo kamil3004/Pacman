@@ -15,13 +15,6 @@ Ghost::Ghost(float radius, float speed) : speed(speed) {
     std::srand(std::time(nullptr));
 }
 
-void Ghost::setPosition(float x, float y) {
-    shape.setPosition(x, y);
-}
-
-sf::Vector2f Ghost::getPosition() const {
-    return shape.getPosition();
-}
 void Ghost::move(sf::Time deltaTime, GameBoard& board) {
     sf::Vector2f newPosition = shape.getPosition() + direction * speed * deltaTime.asSeconds();
 
@@ -37,7 +30,7 @@ void Ghost::move(sf::Time deltaTime, GameBoard& board) {
     }
 }
 
-//void Ghost::chase1(const sf::Vector2f pacmanPosition, sf::Time deltaTime, GameBoard& board) {
+//void Ghost::chase2(const sf::Vector2f pacmanPosition, sf::Time deltaTime, GameBoard& board) {
 //    sf::Vector2f ghostPosition = getPosition();
 //    sf::Vector2f difference = pacmanPosition - ghostPosition;
 //    float length = std::sqrt(difference.x * difference.x + difference.y * difference.y);
@@ -49,9 +42,9 @@ void Ghost::move(sf::Time deltaTime, GameBoard& board) {
 //    move(deltaTime, board);
 //}
 
-void Ghost::draw(sf::RenderWindow& window) {
-    window.draw(shape);
-}
+//void Ghost::draw(sf::RenderWindow& window) {
+//    window.draw(shape);
+//}
 void Ghost::chase(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board) {
     sf::Vector2f direction = pacmanPosition - shape.getPosition();
 
@@ -112,10 +105,4 @@ void Ghost::chase_1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, Game
         // Revert to previous position if collision detected
         shape.setPosition(currentPosition);
     }
-}
-void Ghost::setSpeed(float newSpeed) {
-    speed = newSpeed;
-}
-float Ghost::getRadius() const {
-    return shape.getRadius();
 }

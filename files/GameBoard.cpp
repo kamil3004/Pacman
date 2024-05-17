@@ -3,9 +3,9 @@
 //
 
 #include "GameBoard.h"
-#include <iostream>
+#include <vector>
 
-GameBoard::GameBoard() : tileSize(40.0f/2, 40.0f/2) {
+GameBoard::GameBoard() : tileSize(40.0f, 40.0f) {
     loadBoard();
 }
 
@@ -42,7 +42,7 @@ void GameBoard::loadBoard() {
                 wall.setFillColor(sf::Color::Blue);
                 walls.push_back(wall);
             } else if (level[y][x] == '.') {
-                sf::CircleShape dot(5.0f/2);
+                sf::CircleShape dot(5.0f);
                 dot.setFillColor(sf::Color::White);
                 dot.setOrigin(dot.getRadius(), dot.getRadius());
                 dot.setPosition(x * tileSize.x + tileSize.x / 2, y * tileSize.y + tileSize.y / 2);

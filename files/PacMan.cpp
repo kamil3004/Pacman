@@ -15,18 +15,10 @@ PacMan::PacMan(float radius, float speed) : speed(speed), score(0) {
 
 
 }
-/*
-void PacMan::setPosition(float x, float y) {
-    shape.setPosition(x, y);
-}
- */
-sf::Vector2f PacMan::getPosition() const {
-    return shape.getPosition();
-}
 
-void PacMan::setSpeed(float newSpeed) {
-    speed = newSpeed;
-}
+//void PacMan::setSpeed(float newSpeed) {
+//    speed = newSpeed;
+//}
 
 void PacMan::move(sf::Time deltaTime, GameBoard& board) {
     float moveDistance = speed * deltaTime.asSeconds();
@@ -57,17 +49,16 @@ void PacMan::move(sf::Time deltaTime, GameBoard& board) {
         }
     }
 }
-
-void PacMan::draw(sf::RenderWindow& window)  {
-    window.draw(shape);
-}
+//void PacMan::draw(sf::RenderWindow& window)  {
+//    window.draw(shape);
+//}
 float PacMan::getSpeed() const {
     return speed;
 }
 
-float PacMan::getRadius() const {
-    return shape.getRadius();
-}
+//float PacMan::getRadius() const {
+//    return shape.getRadius();
+//}
 void PacMan::displayPosition() const {
     sf::Vector2f pacmanPosition = getPosition();
     std::cout << "Pacman position: (" << pacmanPosition.x << ", " << pacmanPosition.y << ")" << std::endl;
@@ -78,7 +69,6 @@ void PacMan::eatDot() {
 int PacMan::getScore() const {
     return score;
 }
-
 void PacMan::resetScore() {
     score = 0;
 }

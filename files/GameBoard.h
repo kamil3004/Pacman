@@ -8,9 +8,6 @@
 #include <vector>
 
 
-enum GameState{RUNNING, FINISHED_WIN, FINISHED_LOSS};
-
-
 class GameBoard {
 private:
     std::vector<sf::RectangleShape> walls;

@@ -8,6 +8,7 @@
 
 
 Game_contrl::Game_contrl() : window(sf::VideoMode(840, 880), "Pacman", sf::Style::Resize | sf::Style::Close),gameState(StartScreen) {
+
     pacman.setSpeed(200.0f);
     pacman.setPosition(400.0f, 300.0f);
 
