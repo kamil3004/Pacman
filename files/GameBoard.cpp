@@ -5,6 +5,7 @@
 #include "GameBoard.h"
 #include <vector>
 
+
 GameBoard::GameBoard() : tileSize(40.0f, 40.0f) {
     loadBoard();
 }
@@ -17,16 +18,16 @@ void GameBoard::loadBoard() {
             " #.................# ",
             " #.##.#.#####.#.##.# ",
             " #....#...#...#....# ",
-            " ####.### # ###.#### ",
-            "    #.#       #.#    ",
-            "#####.# ##=## #.#####",
-            "     .  #####  .     ",
-            "#####.# ##### #.#####",
-            "    #.#       #.#    ",
-            " ####.# ##### #.#### ",
+            " ####.###.#.###.#### ",
+            "    #.#.......#.#    ",
+            "#####.#.##.##.#.#####",
+            "    ....#####....     ",
+            "#####.#.#####.#.#####",
+            "    #.#.......#.#    ",
+            " ####.#.#####.#.#### ",
             " #........#........# ",
             " #.##.###.#.###.##.# ",
-            " #..#.....P.....#..# ",
+            " #..#...........#..# ",
             " ##.#.#.#####.#.#.## ",
             " #....#...#...#....# ",
             " #.######.#.######.# ",
@@ -47,6 +48,8 @@ void GameBoard::loadBoard() {
                 dot.setOrigin(dot.getRadius(), dot.getRadius());
                 dot.setPosition(x * tileSize.x + tileSize.x / 2, y * tileSize.y + tileSize.y / 2);
                 dots.push_back(dot);
+
+
             }
         }
     }
@@ -61,9 +64,9 @@ void GameBoard::draw(sf::RenderWindow& window) {
     }
 }
 
-bool GameBoard::checkCollision(const sf::CircleShape& shape) {
+bool GameBoard::checkCollision(const sf::Vector2f& position, float radius) {
     for (const auto& wall : walls) {
-        if (shape.getGlobalBounds().intersects(wall.getGlobalBounds())) {
+        if (wall.getGlobalBounds().intersects(sf::FloatRect(position.x - radius, position.y - radius, 2 * radius, 2 * radius))) {
             return true;
         }
     }

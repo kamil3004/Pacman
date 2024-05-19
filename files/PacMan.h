@@ -14,12 +14,10 @@ class PacMan : public characters {
     int score;
 public:
     PacMan(float radius = 10.f, float speed=250.0f);
-    void move(sf::Time deltaTime, GameBoard& board);
+    void move(sf::Time deltaTime, GameBoard& board, const sf::RenderWindow& window);
     int getScore() const;
     void eatDot();
     void resetScore();
-
-
     float getSpeed() const;
     void displayPosition() const;
 

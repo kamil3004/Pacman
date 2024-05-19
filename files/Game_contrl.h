@@ -23,7 +23,9 @@ private:
 
     sf::RenderWindow window;
     PacMan pacman;
+    Ghost ghost1;
     Ghost ghost;
+    Ghost ghost2;
     GameBoard board;
     sf::Font font;
     sf::Text scoreText;

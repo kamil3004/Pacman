@@ -20,3 +20,6 @@ sf::Vector2f characters::getPosition() const{
 void characters::setSpeed(float newSpeed) {
     speed = newSpeed;
 }
+void characters::setColor(const sf::Color& color) {
+    shape.setFillColor(color);
+}

@@ -20,7 +20,7 @@ PacMan::PacMan(float radius, float speed) : speed(speed), score(0) {
 //    speed = newSpeed;
 //}
 
-void PacMan::move(sf::Time deltaTime, GameBoard& board) {
+void PacMan::move(sf::Time deltaTime, GameBoard& board, const sf::RenderWindow& window) {
     float moveDistance = speed * deltaTime.asSeconds();
     sf::Vector2f movement(0.0f, 0.0f);
 
@@ -41,13 +41,21 @@ void PacMan::move(sf::Time deltaTime, GameBoard& board) {
     sf::Vector2f currentPosition = shape.getPosition();
     shape.setPosition(newPosition);
 
-    if (board.checkCollision(shape)) {
+    if (board.checkCollision(newPosition, getRadius())) {
         shape.setPosition(currentPosition);
     } else {
         if (board.checkDotCollision(shape)) {
             eatDot();
         }
     }
+
+    sf::Vector2f position = shape.getPosition();
+    if (position.x < 0) {
+        shape.setPosition(window.getSize().x, position.y);
+    } else if (position.x > window.getSize().x) {
+        shape.setPosition(0, position.y);
+    }
+
 }
 //void PacMan::draw(sf::RenderWindow& window)  {
 //    window.draw(shape);

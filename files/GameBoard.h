@@ -17,7 +17,7 @@ public:
     GameBoard();
     void draw(sf::RenderWindow& window);
     void loadBoard();
-    bool checkCollision(const sf::CircleShape& shape);
+    bool checkCollision(const sf::Vector2f& position, float radius);
     int checkDotCollision(sf::CircleShape& pacmanShape);
 };
 #endif //PROJECT1_GAMEBOARD_H

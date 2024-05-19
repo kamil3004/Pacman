@@ -9,6 +9,7 @@
 class characters {
     float speed;
 public:
+    void setColor(const sf::Color& color);
     sf::CircleShape shape;
     void setPosition(float x, float y);
     float getRadius() const;

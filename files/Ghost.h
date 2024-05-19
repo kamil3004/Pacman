@@ -14,14 +14,10 @@ private:
     sf::Vector2f direction;
 
 public:
-    Ghost( float radius = 10.0f, float speed = 100.0f);
+    Ghost( float radius = 10.0f, float speed = 100.0f,sf::Color color = sf::Color::Red);
     void move(sf::Time deltaTime, GameBoard& board);
     void chase(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
     void chase_1(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
-    void chase2(const sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
-
-   // void moveRandom();
-    //void draw(sf::RenderWindow & window) const;
-   //void displayPosition() const;
+    void chase2( sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
 };
 #endif //PROJECT1_GHOST_H
