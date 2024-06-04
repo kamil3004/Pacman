@@ -7,17 +7,18 @@
 #include <SFML/Graphics.hpp>
 
 class characters {
-    float speed;
 public:
-    void setColor(const sf::Color& color);
+    characters(float radius, const sf::Color& color, float speed);
     sf::CircleShape shape;
     void setPosition(float x, float y);
     float getRadius() const;
     void draw(sf::RenderWindow& window);
     sf::Vector2f getPosition() const;
     void setSpeed(float newSpeed);
+    float getSpeed() const;
 protected:
     sf::Vector2f position;
+    float speed;
 };
 
 

@@ -4,7 +4,12 @@
 
 #include "characters.h"
 
-//przenieść tu set position
+characters::characters(float radius, const sf::Color& color, float speed): speed(speed){
+        shape.setRadius(radius);
+        shape.setFillColor(color);
+        shape.setOrigin(radius, radius);
+}
+
 void characters::setPosition(float x, float y) {
     shape.setPosition(x, y);
 }
@@ -20,6 +25,6 @@ sf::Vector2f characters::getPosition() const{
 void characters::setSpeed(float newSpeed) {
     speed = newSpeed;
 }
-void characters::setColor(const sf::Color& color) {
-    shape.setFillColor(color);
+float characters::getSpeed() const {
+    return speed;
 }

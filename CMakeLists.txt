@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 17)
 if (UNIX)
     # CMake dla MacOS z procesorem M2.... nie jestem w stanie zrobić aby był
     # uniwersalny dla każdego komputera
-set(SFML_INCLUDE_DIR "/usr/local/include")
-set(SFML_LIBRARY_DIR "/Users/kamilbasiorka/Downloads/1/lib")
+set(SFML_INCLUDE_DIR "/usr/local/include")  #zamienić ścieżkę w razie konieczności
+set(SFML_LIBRARY_DIR "/Users/kamilbasiorka/Downloads/1/lib")    #zamienić ścieżkę w razie konieczności
 link_directories(SFML_LIBRARY_DIR)
 include_directories(SFML_INCLUDE_DIR)
 endif(UNIX)
@@ -21,14 +21,14 @@ endif(WIN32)
 
 find_package(SFML 2.6.0 COMPONENTS system window graphics network audio)
 add_executable(2 main.cpp
-        files/GameBoard.cpp
-        files/GameBoard.h
-        files/characters.cpp
-        files/characters.h
-        files/PacMan.cpp
-        files/PacMan.h
-        files/Ghost.cpp
-        files/Ghost.h
-        files/Game_contrl.cpp
-        files/Game_contrl.h)
+        src/GameBoard.cpp
+        src/GameBoard.h
+        src/characters.cpp
+        src/characters.h
+        src/PacMan.cpp
+        src/PacMan.h
+        src/Ghost.cpp
+        src/Ghost.h
+        src/Game_contrl.cpp
+        src/Game_contrl.h)
 target_link_libraries (2 sfml-graphics sfml-window sfml-system)

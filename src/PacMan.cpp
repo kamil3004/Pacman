@@ -3,22 +3,13 @@
 //
 #include <SFML/Graphics.hpp>
 #include "PacMan.h"
-//#include "GameBoard.h"
+
 #include <iostream>
 
-//GameBoard Board;
-PacMan::PacMan(float radius, float speed) : speed(speed), score(0) {
-    shape.setRadius(radius);
-    shape.setFillColor(sf::Color::Yellow);
-    shape.setOrigin(radius, radius);
-   // shape.setPosition(400,300);
 
+PacMan::PacMan(float radius, const sf::Color& color, float speed):characters(radius, color, speed), score(0) {
 
 }
-
-//void PacMan::setSpeed(float newSpeed) {
-//    speed = newSpeed;
-//}
 
 void PacMan::move(sf::Time deltaTime, GameBoard& board, const sf::RenderWindow& window) {
     float moveDistance = speed * deltaTime.asSeconds();
@@ -57,20 +48,7 @@ void PacMan::move(sf::Time deltaTime, GameBoard& board, const sf::RenderWindow& 
     }
 
 }
-//void PacMan::draw(sf::RenderWindow& window)  {
-//    window.draw(shape);
-//}
-float PacMan::getSpeed() const {
-    return speed;
-}
 
-//float PacMan::getRadius() const {
-//    return shape.getRadius();
-//}
-void PacMan::displayPosition() const {
-    sf::Vector2f pacmanPosition = getPosition();
-    std::cout << "Pacman position: (" << pacmanPosition.x << ", " << pacmanPosition.y << ")" << std::endl;
-}
 void PacMan::eatDot() {
     score += 10;
 }

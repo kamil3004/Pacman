@@ -9,18 +9,13 @@
 
 
 class PacMan : public characters {
-    char direction;
-    float speed;
     int score;
 public:
-    PacMan(float radius = 10.f, float speed=250.0f);
+    PacMan(float radius, const sf::Color& color, float speed);
     void move(sf::Time deltaTime, GameBoard& board, const sf::RenderWindow& window);
     int getScore() const;
     void eatDot();
     void resetScore();
-    float getSpeed() const;
-    void displayPosition() const;
-
 };
 
 
