@@ -1,14 +1,10 @@
-//
-// Created by admin on 24.04.2024.
-//
-
 #ifndef PROJECT1_CHARACTERS_H
 #define PROJECT1_CHARACTERS_H
 #include <SFML/Graphics.hpp>
 
-class characters {
+class Characters {
 public:
-    characters(float radius, const sf::Color& color, float speed);
+    Characters(float radius, const sf::Color& color, float speed);
     sf::CircleShape shape;
     void setPosition(float x, float y);
     float getRadius() const;

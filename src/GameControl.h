@@ -1,18 +1,14 @@
-//
-// Created by admin on 17.05.2024.
-//
-
-#ifndef PACMAN_GAME_CONTRL_H
-#define PACMAN_GAME_CONTRL_H
+#ifndef PACMAN_GAMECONTROL_H
+#define PACMAN_GAMECONTROL_H
 #include <SFML/Graphics.hpp>
 #include "PacMan.h"
 #include "GameBoard.h"
 #include "Ghost.h"
 #include <vector>
 
-class Game_contrl {
+class GameControl {
 public:
-    Game_contrl();
+    GameControl();
     void run();
 private:
     void processEvents();
@@ -35,4 +31,4 @@ private:
 };
 
 
-#endif //PACMAN_GAME_CONTRL_H
+#endif //PACMAN_GAMECONTROL_H

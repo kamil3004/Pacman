@@ -1,15 +1,9 @@
-//
-// Created by admin on 17.05.2024.
-//
-
-#include "Game_contrl.h"
+#include "GameControl.h"
 #include <iostream>
 #include <cmath>
 
-
-
-Game_contrl::Game_contrl() : window(sf::VideoMode(840, 880), "Pacman", sf::Style::Resize | sf::Style::Close),gameState(StartScreen),
-    pacman(10.f, sf::Color::Yellow, 200.f)
+GameControl::GameControl() : window(sf::VideoMode(840, 880), "Pacman", sf::Style::Resize | sf::Style::Close), gameState(StartScreen),
+                             pacman(10.f, sf::Color::Yellow, 200.f)
     {
 
     pacman.setSpeed(200.0f);
@@ -41,7 +35,7 @@ Game_contrl::Game_contrl() : window(sf::VideoMode(840, 880), "Pacman", sf::Style
     messageText.setString("To start press Enter");
 }
 
-void Game_contrl::run() {
+void GameControl::run() {
     while (window.isOpen()) {
         sf::Time deltaTime = clock.restart();
         processEvents();
@@ -50,7 +44,7 @@ void Game_contrl::run() {
     }
 }
 
-void Game_contrl::processEvents() {
+void GameControl::processEvents() {
     sf::Event event{};
     while (window.pollEvent(event)) {
         if (event.type == sf::Event::Closed)
@@ -72,17 +66,17 @@ void Game_contrl::processEvents() {
         }
     }
 }
-float Game_contrl::calculateDistance(const sf::Vector2f& pos1, const sf::Vector2f& pos2) {
+float GameControl::calculateDistance(const sf::Vector2f& pos1, const sf::Vector2f& pos2) {
     return std::sqrt((pos1.x - pos2.x) * (pos1.x - pos2.x) + (pos1.y - pos2.y) * (pos1.y - pos2.y));
 }
 
-bool Game_contrl::isColliding(const PacMan& pacman, const Ghost& ghost) {
+bool GameControl::isColliding(const PacMan& pacman, const Ghost& ghost) {
     distance = calculateDistance(pacman.getPosition(), ghost.getPosition());
     return distance < (pacman.getRadius() + ghost.getRadius());
 }
 
 
-void Game_contrl::update(sf::Time deltaTime) {
+void GameControl::update(sf::Time deltaTime) {
     if (gameState == Playing) {
         sf::Vector2f pacmanPos = pacman.getPosition();
         pacman.move(deltaTime, board, window);
@@ -105,7 +99,7 @@ void Game_contrl::update(sf::Time deltaTime) {
     }
 }
 
-void Game_contrl::render() {
+void GameControl::render() {
     if (gameState == StartScreen || gameState == GameOver || gameState == GameWon) {
         window.clear(sf::Color::Black);
     } else {
@@ -133,7 +127,7 @@ void Game_contrl::render() {
 
 }
 
-void Game_contrl::resetGame() {
+void GameControl::resetGame() {
     pacman.setPosition(400.0f, 300.0f);
     ghosts[0].setPosition(100.f, 60.f);
     ghosts[1].setPosition(100.f, 780.f);

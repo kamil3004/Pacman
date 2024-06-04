@@ -1,7 +1,7 @@
-#include "src/Game_contrl.h"
+#include "src/GameControl.h"
 int main()
 {
-    Game_contrl game;
+    GameControl game;
     game.run();
 
     return 0;

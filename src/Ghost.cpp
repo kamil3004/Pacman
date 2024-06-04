@@ -1,17 +1,13 @@
-//
-// Created by admin on 05.05.2024.
-//
-
 #include "Ghost.h"
 #include <cstdlib>
 #include <cmath>
 #include <SFML/System/Vector2.hpp>
 
 
-Ghost::Ghost(float radius, const sf::Color& color, float speed) : characters(radius, color, speed) {
+Ghost::Ghost(float radius, const sf::Color& color, float speed) : Characters(radius, color, speed) {
 
   }
-void Ghost::chase(sf::Vector2f& pacmanPosition, sf::Time deltaTime,  GameBoard& board){
+void Ghost::chase(sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board){
     sf::Vector2f direction = pacmanPosition - shape.getPosition();
 
     float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);

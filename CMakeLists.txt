@@ -23,12 +23,12 @@ find_package(SFML 2.6.0 COMPONENTS system window graphics network audio)
 add_executable(2 main.cpp
         src/GameBoard.cpp
         src/GameBoard.h
-        src/characters.cpp
-        src/characters.h
+        src/Characters.cpp
+        src/Characters.h
         src/PacMan.cpp
         src/PacMan.h
         src/Ghost.cpp
         src/Ghost.h
-        src/Game_contrl.cpp
-        src/Game_contrl.h)
+        src/GameControl.cpp
+        src/GameControl.h)
 target_link_libraries (2 sfml-graphics sfml-window sfml-system)

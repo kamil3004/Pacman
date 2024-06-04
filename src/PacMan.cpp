@@ -1,13 +1,7 @@
-//
-// Created by admin on 24.04.2024.
-//
 #include <SFML/Graphics.hpp>
 #include "PacMan.h"
 
-#include <iostream>
-
-
-PacMan::PacMan(float radius, const sf::Color& color, float speed):characters(radius, color, speed), score(0) {
+PacMan::PacMan(float radius, const sf::Color& color, float speed): Characters(radius, color, speed), score(0) {
 
 }
 
