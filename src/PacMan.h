@@ -5,6 +5,7 @@
 
 
 class PacMan : public Characters {
+private:
     int score;
 public:
     PacMan(float radius, const sf::Color& color, float speed);

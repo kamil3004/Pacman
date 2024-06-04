@@ -17,7 +17,7 @@ private:
     void resetGame();
     float calculateDistance(const sf::Vector2f& pos1, const sf::Vector2f& pos2);
     bool isColliding(const PacMan& pacman, const Ghost& ghost);
-    enum GameState { Playing, GameOver, GameWon, StartScreen } gameState;
+    enum gameState { Playing, GameOver, GameWon, StartScreen } gameState;
     float distance;
     sf::RenderWindow window;
     PacMan pacman;
