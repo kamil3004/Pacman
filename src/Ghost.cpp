@@ -12,24 +12,28 @@ void Ghost::chase(sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& b
 
     float length = std::sqrt(direction.x * direction.x + direction.y * direction.y);
     direction /= length;
-    // Oblicz nową pozycję ducha na podstawie kierunku i prędkości
-    sf::Vector2f newPosition = shape.getPosition() + direction * speed * deltaTime.asSeconds();
 
-    // Sprawdź, czy nowa pozycja jest dozwolona na planszy
+    //Oblicz nową pozycję ducha na podstawie kierunku i prędkości
+
+    sf::Vector2f newPosition = shape.getPosition() + direction * speed * deltaTime.asSeconds();
+        //Sprawdź, czy nowa pozycja jest dozwolona na planszy
+
     if (!board.checkCollision(newPosition, getRadius())) {
         shape.setPosition(newPosition);
     } else {
-        // Jeśli napotkano przeszkodę, zmień kierunek ruchu w sposób losowy
 
+        //Jeśli napotkano przeszkodę, zmień kierunek ruchu w sposób losowy
         int randomAngle = std::rand() % 360; // Losowy kąt od 0 do 359 stopni
-        float randomDirectionX = std::cos(randomAngle * 3.14159 / 180); // Przeliczenie na radiany
-        float randomDirectionY = std::sin(randomAngle * 3.14159 / 180);
-        sf::Vector2f randomDirection(randomDirectionX, randomDirectionY);
-        newPosition = shape.getPosition() + randomDirection * speed * deltaTime.asSeconds();
+         float randomDirectionX = std::cos(randomAngle * 3.14159 / 180); // Przeliczenie na radiany
+         float randomDirectionY = std::sin(randomAngle * 3.14159 / 180);
+         sf::Vector2f randomDirection(randomDirectionX, randomDirectionY);
+         newPosition = shape.getPosition() + randomDirection * speed * deltaTime.asSeconds();
 
-        // Sprawdź, czy nowa pozycja pozwala na uniknięcie przeszkody
+         //  Sprawdź, czy nowa pozycja pozwala na uniknięcie przeszkody
+
         if (!board.checkCollision(newPosition, getRadius())) {
             shape.setPosition(newPosition);
         }
     }
 }
+

@@ -1,7 +1,3 @@
-//
-// Created by admin on 24.04.2024.
-//
-
 #include "Characters.h"
 
 Characters::Characters(float radius, const sf::Color& color, float speed): speed(speed){

@@ -13,7 +13,6 @@ public:
     void setSpeed(float newSpeed);
     float getSpeed() const;
 protected:
-    //sf::Vector2f position;
     float speed;
 };
 

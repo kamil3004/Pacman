@@ -20,7 +20,8 @@ if (WIN32)
 endif(WIN32)
 
 find_package(SFML 2.6.0 COMPONENTS system window graphics network audio)
-add_executable(2 main.cpp
+# add_executable(2.... ) "2" odpowiada za SFML
+add_executable( PacMan main.cpp
         src/GameBoard.cpp
         src/GameBoard.h
         src/Characters.cpp
@@ -31,4 +32,4 @@ add_executable(2 main.cpp
         src/Ghost.h
         src/GameControl.cpp
         src/GameControl.h)
-target_link_libraries (2 sfml-graphics sfml-window sfml-system)
+target_link_libraries ( PacMan sfml-graphics sfml-window sfml-system)

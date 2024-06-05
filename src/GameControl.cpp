@@ -3,16 +3,16 @@
 #include <cmath>
 
 GameControl::GameControl() : window(sf::VideoMode(840, 880), "Pacman", sf::Style::Resize | sf::Style::Close), gameState(StartScreen),
-                             pacman(10.f, sf::Color::Yellow, 200.f)
+                             pacman(16.f, sf::Color::Yellow, 200.f)
     {
 
     pacman.setSpeed(200.0f);
     pacman.setPosition(400.0f, 300.0f);
 
-    ghosts.emplace_back(11.f, sf::Color::Red, 100.f);
-    ghosts.emplace_back(11.f, sf::Color::Magenta, 150.f);
-    ghosts.emplace_back(11.f, sf::Color::Green, 80.f);
-    ghosts.emplace_back(11.f, sf::Color::White, 50.f);
+    ghosts.emplace_back(12.f, sf::Color::Red, 100.f);
+    ghosts.emplace_back(12.f, sf::Color::Magenta, 150.f);
+    ghosts.emplace_back(12.f, sf::Color::Green, 80.f);
+    ghosts.emplace_back(12.f, sf::Color::White, 50.f);
 
     ghosts[0].setPosition(100.f, 60.f);
     ghosts[1].setPosition(100.f, 780.f);
@@ -66,6 +66,7 @@ void GameControl::processEvents() {
         }
     }
 }
+
 float GameControl::calculateDistance(const sf::Vector2f& pos1, const sf::Vector2f& pos2) {
     return std::sqrt((pos1.x - pos2.x) * (pos1.x - pos2.x) + (pos1.y - pos2.y) * (pos1.y - pos2.y));
 }
@@ -75,15 +76,17 @@ bool GameControl::isColliding(const PacMan& pacman, const Ghost& ghost) {
     return distance < (pacman.getRadius() + ghost.getRadius());
 }
 
-
 void GameControl::update(sf::Time deltaTime) {
     if (gameState == Playing) {
+
         sf::Vector2f pacmanPos = pacman.getPosition();
         pacman.move(deltaTime, board, window);
+
 
         for (auto& ghost : ghosts) {
             ghost.chase(pacmanPos, deltaTime, board);
         }
+
 
         for (const auto& ghost : ghosts) {
             if (isColliding(pacman, ghost)) {
@@ -118,6 +121,7 @@ void GameControl::render() {
     if (gameState == StartScreen || gameState == GameOver || gameState == GameWon) {
         window.draw(messageText);
     }
+
     else {
         scoreText.setString("Score: " + std::to_string(pacman.getScore()));
         window.draw(scoreText);

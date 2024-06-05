@@ -6,7 +6,11 @@
 
 class Ghost :public Characters {
 public:
+    // Konstruktor dla Ghost
     Ghost(float radius, const sf::Color& color, float speed);
+
+    //Oblicza nową pozycję ducha na podstawie kierunku i prędkości,
+    //i przesuwa ducha w kierunku PacMana
     void chase( sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& board);
 };
 #endif //PROJECT1_GHOST_H

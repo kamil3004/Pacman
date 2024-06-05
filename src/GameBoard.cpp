@@ -69,6 +69,7 @@ bool GameBoard::checkCollision(const sf::Vector2f& position, float radius) {
     return false;
 }
 
+
 int GameBoard::checkDotCollision(sf::CircleShape& pacmanShape) {
     int points = 0;
     for (auto it = dots.begin(); it != dots.end();) {
