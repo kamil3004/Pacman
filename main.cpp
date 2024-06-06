@@ -1,6 +1,12 @@
 #include "src/GameControl.h"
 
-
+/**
+ * @brief Funkcja główna programu.
+ *
+ * Tworzy obiekt GameControl i uruchamia grę.
+ *
+ * @return Zwraca 0, aby wskazać pomyślne zakończenie programu.
+ */
 int main()
 {
     // Tworzenie obiektu GameControl, który zarządza grą.

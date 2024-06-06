@@ -16,7 +16,8 @@ void Ghost::chase(sf::Vector2f& pacmanPosition, sf::Time deltaTime, GameBoard& b
     //Oblicz nową pozycję ducha na podstawie kierunku i prędkości
 
     sf::Vector2f newPosition = shape.getPosition() + direction * speed * deltaTime.asSeconds();
-        //Sprawdź, czy nowa pozycja jest dozwolona na planszy
+
+    //Sprawdź, czy nowa pozycja jest dozwolona na planszy
 
     if (!board.checkCollision(newPosition, getRadius())) {
         shape.setPosition(newPosition);

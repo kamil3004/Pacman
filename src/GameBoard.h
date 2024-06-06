@@ -6,43 +6,46 @@
 
 class GameBoard {
 private:
-    /**
-     * vektor dla ścian,
-     */
-    std::vector<sf::RectangleShape> walls;
-    /**
-     * vektor dla rozmiaru okienka
-     */
-    sf::Vector2f tileSize;
-    /**
-     *  vektor dla kropek
-     */
-    std::vector<sf::CircleShape> dots;
+    std::vector<sf::RectangleShape> walls; ///< Kontener przechowujący kształty ścian.
+    sf::Vector2f tileSize; ///< Rozmiar pojedynczej płytki na planszy.
+    std::vector<sf::CircleShape> dots; ///< Kontener przechowujący kształty kropek.
 public:
+
     /**
-     * konstruktor
-     */
+    * @brief Rysuje planszę gry na oknie.
+    *
+    * @param window Obiekt okna renderowania SFML.
+    */
     GameBoard();
+
     /**
-     * rusuje okno na podstwaie window
-     * @param window
-     */
+    * @brief Rysuje planszę gry na oknie.
+    *
+    * @param window Obiekt okna renderowania SFML.
+    */
     void draw(sf::RenderWindow& window);
+
     /**
-     * ładuje mapę
-     */
+   * @brief Ładuje planszę gry, tworząc ściany i kropki.
+   *
+   * Inicjalizuje układ planszy gry na podstawie predefiniowanego wzorca.
+   */
     void loadBoard();
+
     /**
-     * sprawdza kolizje na podstawie pozycji i rozmiaru obieków
-     * @param position
-     * @param radius
-     * @return
+     * @brief Sprawdza kolizję postaci ze ścianami.
+     *
+     * @param position Pozycja postaci.
+     * @param radius Promień postaci.
+     * @return bool Zwraca true, jeśli nastąpiła kolizja; w przeciwnym razie false.
      */
     bool checkCollision(const sf::Vector2f& position, float radius);
+
     /**
-     * sprawdza kolizje z kropkami na podstawie pozycji i rozmiaru obieków
-     * @param pacmanShape
-     * @return
+     * @brief Sprawdza kolizję Pac-Mana z kropkami.
+     *
+     * @param pacmanShape Kształt Pac-Mana.
+     * @return int Zwraca liczbę zjedzonych kropek.
      */
     int checkDotCollision(sf::CircleShape& pacmanShape);
 };
